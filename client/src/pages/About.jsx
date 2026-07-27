@@ -93,8 +93,63 @@ const About = () => {
 
                     </h2>
 
+                    <p className="text-gray-400 mt-2">
+
+                            Student
+
+                        </p>
+
+                    </div>
+
+                    <div className="bg-zinc-900 rounded-2xl p-8 text-center">
+
+                        <h2 className="text-orange-500 text-4xl font-bold">
+
+                            3
+
+                        </h2>
+
+                        <p className="text-gray-400 mt-2">
+
+                            Projects
+
+                        </p>
+
+                    </div>
+
+                    <div className="bg-zinc-900 rounded-2xl p-8 text-center">
+
+                        <h2 className="text-orange-500 text-4xl font-bold">
+
+                            10+
+
+                        </h2>
+
+                        <p className="text-gray-400 mt-2">
+
+                            Technologies
+
+                        </p>
+
+                    </div>
+
+                    <div className="bg-zinc-900 rounded-2xl p-8 text-center">
+
+                        <h2 className="text-orange-500 text-4xl font-bold">
+
+                            Open
+
+                        </h2>
+
+                        <p className="text-gray-400 mt-2">
+                            
+
+                            To Work
+
+                        </p>
+
                 </div>
-                
+
             </div>
 
         </section>
