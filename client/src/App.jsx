@@ -1,22 +1,37 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Navbar from "./pages/Navbar";
+import Navbar from "./components/Navbar";
 import About from "./pages/About";
+import Skills from "./pages/Skills";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 
 const App = () => {
 
   return (
 
-    <div>
-
-      <Home />
     
-      <About />
+        <BrowserRouter>
 
+            <Navbar />
 
-    </div>
+            <Routes>
 
-    
-  );
+                <Route path="/" element={<Home />} />
+
+                <Route path="/about" element={<About />} />
+
+                <Route path="/skills" element={<Skills />} />
+
+                <Route path="/projects" element={<Projects />} />
+
+                <Route path="/contact" element={<Contact />} />
+
+            </Routes>
+
+        </BrowserRouter>
+
+    );
 
 };
 

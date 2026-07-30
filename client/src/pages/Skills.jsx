@@ -9,100 +9,104 @@ import { RiTailwindCssFill } from "react-icons/ri"
 const Skills = () => {
 
     const skills = [
-    {
-        title: "Frontend",
-        items: [
-            { name: "HTML", icon: <FaHtml5 className="text-5xl text-orange-500" /> },
-            { name: "CSS", icon: <FaCss3Alt className="text-5xl text-blue-500" /> },
-            { name: "JavaScript", icon: <IoLogoJavascript className="text-5xl text-yellow-400" /> },
-            { name: "React", icon: <FaReact className="text-5xl text-cyan-400" /> },
-            { name: "Tailwind", icon: <RiTailwindCssFill className="text-5xl text-sky-400" /> },
-            { name: "Bootstrap", icon: <FaBootstrap className="text-5xl text-purple-500" /> }
-        ]
-    },
-    {
-        title: "Backend",
-        items: [
-            { name: "Node.js", icon: <FaNodeJs className="text-5xl text-green-500" /> },
-            { name: "Express.js", icon: <SiExpress className="text-5xl" /> },
-            { name: "MongoDB", icon: <SiMongodb className="text-5xl text-green-600" /> }
-        ]
-    },
-    {
-        title: "Tools",
-        items: [
-            { name: "Git", icon: <FaGitAlt className="text-5xl text-orange-600" /> },
-            { name: "GitHub", icon: <FaGithub className="text-5xl" /> },
-            { name: "VS Code", icon: <VscVscode className="text-5xl text-blue-500" /> },
-            { name: "Thunder Client", icon: <TbBolt className="text-5xl text-yellow-400" /> },
-            { name: "Vercel", icon: <SiVercel className="text-5xl" /> },
-            { name: "Render", icon: <SiRender className="text-5xl text-cyan-400" /> }
-        ]
-    }
-];
+        {
+            title: "Frontend",
+            items: [
+                { name: "HTML", icon: <FaHtml5 className="text-5xl text-orange-500" /> },
+                { name: "CSS", icon: <FaCss3Alt className="text-5xl text-blue-500" /> },
+                { name: "JavaScript", icon: <IoLogoJavascript className="text-5xl text-yellow-400" /> },
+                { name: "React", icon: <FaReact className="text-5xl text-cyan-400" /> },
+                { name: "Tailwind", icon: <RiTailwindCssFill className="text-5xl text-sky-400" /> },
+                { name: "Bootstrap", icon: <FaBootstrap className="text-5xl text-purple-500" /> }
+            ]
+        },
+        {
+            title: "Backend",
+            items: [
+                { name: "Node.js", icon: <FaNodeJs className="text-5xl text-green-500" /> },
+                { name: "Express.js", icon: <SiExpress className="text-5xl" /> },
+                { name: "MongoDB", icon: <SiMongodb className="text-5xl text-green-600" /> }
+            ]
+        },
+        {
+            title: "Tools",
+            items: [
+                { name: "Git", icon: <FaGitAlt className="text-5xl text-orange-600" /> },
+                { name: "GitHub", icon: <FaGithub className="text-5xl" /> },
+                { name: "VS Code", icon: <VscVscode className="text-5xl text-blue-500" /> },
+                { name: "Thunder Client", icon: <TbBolt className="text-5xl text-yellow-400" /> },
+                { name: "Vercel", icon: <SiVercel className="text-5xl" /> },
+                { name: "Render", icon: <SiRender className="text-5xl text-cyan-400" /> }
+            ]
+        }
+    ];
 
     return (
 
-        <div className="bg-black text-white py-20">
+        <section id="skills">
 
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="bg-black text-white py-20">
 
-                <h1 className="text-5xl font-bold text-center">
+                <div className="max-w-7xl mx-auto px-6">
 
-                    My <span className="text-orange-500">Skills</span>
+                    <h1 className="text-5xl font-bold text-center">
 
-                </h1>
+                        My <span className="text-orange-500">Skills</span>
 
-                <div className="mt-16 space-y-16">
+                    </h1>
 
-                    {
-                        skills.map((section) => (
+                    <div className="mt-16 space-y-16">
 
-                            <div key={section.title}>
+                        {
+                            skills.map((section) => (
 
-                                <h2 className="text-3xl font-bold mb-8 text-orange-500">
+                                <div key={section.title}>
 
-                                    {section.title}
+                                    <h2 className="text-3xl font-bold mb-8 text-orange-500">
 
-                                </h2>
+                                        {section.title}
 
-                                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                                    </h2>
 
-                                    {
-                                        section.items.map((skill) => (
+                                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
-                                            <div
-                                                key={skill.name}
-                                                className="bg-[#111] border border-gray-800 rounded-2xl p-8 flex flex-col items-center gap-5 hover:border-orange-500 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(249,115,22,0.4)] transition-all duration-300 cursor-pointer"
-                                            >
+                                        {
+                                            section.items.map((skill) => (
 
-                                                {skill.icon}
+                                                <div
+                                                    key={skill.name}
+                                                    className="bg-[#111] border border-gray-800 rounded-2xl p-8 flex flex-col items-center gap-5 hover:border-orange-500 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(249,115,22,0.4)] transition-all duration-300 cursor-pointer"
+                                                >
 
-                                                <h3 className="text-lg font-semibold">
+                                                    {skill.icon}
 
-                                                    {skill.name}
+                                                    <h3 className="text-lg font-semibold">
 
-                                                </h3>
+                                                        {skill.name}
 
-                                            </div>
+                                                    </h3>
 
-                                        ))
-                                    }
+                                                </div>
+
+                                            ))
+                                        }
+
+                                    </div>
 
                                 </div>
 
-                            </div>
+                            ))
+                        }
 
-                        ))
-                    }
+                    </div>
+
+                    <div className="w-28 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
 
                 </div>
 
-                <div className="w-28 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
-
             </div>
 
-        </div>
+        </section>
 
     );
 
