@@ -4,22 +4,32 @@ const Home = () => {
 
     return (
 
-        <section id="home">
+        <section id="home" className="bg-[#050505] text-white min-h-screen flex items-center">
 
-            <div className="bg-black">
+            <div className="max-w-7xl mx-auto px-6 w-full">
 
                 <div className="text-white">
-                    <h3 className="text-orange-500 text-2xl mb-4">👋 Hello, I'm</h3>
-                    <h1 className="text-6xl mb-10">Pranjal Pundir</h1>
-                    <h2 className="text-gray-300 text-3xl mb-6">Full Stack Web Developer</h2>
-                    <p>I build modern, responsive and scalable</p>
-                    <p>web applications using MongoDB, Express.js</p>
-                    <p>React.js and Node.js.</p>
+
+                    <h3 className="text-orange-500 text-2xl font-semibold mb-5">👋 Hello, I'm</h3>
+
+                    <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">Pranjal Pundir</h1>
+
+                    <h2 className="text-3xl text-gray-300 mt-6">Full Stack Web Developer</h2>
+
+                    <p className="text-gray-400 mt-8 leading-8 text-lg max-w-xl">
+
+                        I build modern, responsive and scalable web
+                        applications using MongoDB, Express.js,
+                        React.js and Node.js.
+
+                    </p>
+
                 </div>
 
-                <div className="flex gap-5 mt-8">
-                    <button className="text-white bg-orange-600 p-2 rounded-lg">View Projects</button>
-                    <button className="border border-white text-white p-2 rounded-lg">Download Resume</button>
+                <div className="flex flex-wrap gap-6 mt-10">
+
+                    <button className="text-white bg-orange-600 hover:bg-orange-700 p-2 rounded-lg">View Projects</button>
+                    <button className="border border-white hover:bg-orange-500 hover:text-white text-white p-2 rounded-lg">Download Resume</button>
                 </div>
 
                 <div className="flex justify-center">

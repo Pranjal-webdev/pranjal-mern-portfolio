@@ -1,6 +1,6 @@
-import { FaHtml5, FaCss3Alt, FaReact, Bootstrap, FaNodeJs, FaGitAlt, FaGithub } from "react-icons/io5";
+import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaNodeJs, FaGitAlt, FaGithub } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
-import { SiExpress, SiMongodb, SiVercel, SiRender } from "react-ions/si";
+import { SiExpress, SiMongodb, SiVercel, SiRender } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { TbBolt } from "react-icons/tb";
 import { RiTailwindCssFill } from "react-icons/ri"
