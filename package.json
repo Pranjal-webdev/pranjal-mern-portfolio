@@ -1,5 +1,19 @@
 {
+  "name": "server",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  
   "dependencies": {
-    "react-icons": "^5.7.0"
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "openai": "^7.3.0"
+  },
+
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
