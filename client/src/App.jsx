@@ -5,6 +5,7 @@ import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import AIChatbot from "./components/AIChatbot";
 
 const App = () => {
 
@@ -14,6 +15,7 @@ const App = () => {
         <BrowserRouter>
 
             <Navbar />
+            <AIChatbot />   
 
             <Routes>
 
