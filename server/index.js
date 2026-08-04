@@ -1,10 +1,13 @@
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
+import connectDB from "./config/db.js";
 
 import aiRoute from "./routes/aiRoute.js";
+import adminAuthRoutes from "./routes/adminAuthRoutes.js";
 
 dotenv.config();
+connectDB();
 
 console.log("Server starting...");
 
@@ -17,6 +20,7 @@ app.use(express.json());
 
 
 app.use("/api/ai", aiRoute);
+app.use("/api/admin",adminAuthRoutes);
 
 
 app.get("/",(req,res)=>{
