@@ -6,6 +6,8 @@ import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import AIChatbot from "./components/AIChatbot";
+import Login from "./admin/Login";
+import Dashboard from "./dashboard/Dashboard";
 
 const App = () => {
 
@@ -28,6 +30,10 @@ const App = () => {
                 <Route path="/projects" element={<Projects />} />
 
                 <Route path="/contact" element={<Contact />} />
+
+                <Route path="/admin" element={<Login/>}/>
+
+                <Route path="/dashboard" element={<Dashboard/>}/>
 
             </Routes>
 
