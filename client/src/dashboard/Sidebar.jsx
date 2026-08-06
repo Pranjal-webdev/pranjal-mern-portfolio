@@ -50,6 +50,7 @@ const Sidebar = () => {
           <NavLink
             key={item.title}
             to={item.path}
+            end={item.path === "/dashboard"}
             className={({ isActive }) =>
               `flex items-center gap-4 px-6 py-4 transition ${
                 isActive

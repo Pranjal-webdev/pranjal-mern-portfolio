@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
@@ -9,15 +9,19 @@ import AIChatbot from "./components/AIChatbot";
 import Login from "./admin/Login";
 import Dashboard from "./dashboard/Dashboard";
 
-const App = () => {
+const AppContent = () => {
 
-  return (
+    const location = useLocation();
+    const isDashboard = location.pathname.startsWith("/dashboard");
+
+
+    return (
 
     
-        <BrowserRouter>
+        <>
 
-            <Navbar />
-            <AIChatbot />   
+            {!isDashboard && <Navbar />}
+            {!isDashboard && <AIChatbot />}  
 
             <Routes>
 
@@ -33,14 +37,23 @@ const App = () => {
 
                 <Route path="/admin" element={<Login/>}/>
 
-                <Route path="/dashboard" element={<Dashboard/>}/>
+                <Route path="/dashboard/*" element={<Dashboard/>}/>
 
             </Routes>
 
-        </BrowserRouter>
+        </>
 
     );
 
+};
+
+const App = () => {
+
+    return (
+        <BrowserRouter>
+            <AppContent />
+        </BrowserRouter>
+    );
 };
 
 export default App;

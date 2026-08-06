@@ -1,4 +1,5 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { getSkills } from "../services/skillService";
 import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaNodeJs, FaGitAlt, FaGithub } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
 import { SiExpress, SiMongodb, SiVercel, SiRender } from "react-icons/si";
@@ -9,38 +10,72 @@ import { RiTailwindCssFill } from "react-icons/ri"
 
 const Skills = () => {
 
-    const skills = [
-        {
-            title: "Frontend",
-            items: [
-                { name: "HTML", icon: <FaHtml5 className="text-5xl text-orange-500" /> },
-                { name: "CSS", icon: <FaCss3Alt className="text-5xl text-blue-500" /> },
-                { name: "JavaScript", icon: <IoLogoJavascript className="text-5xl text-yellow-400" /> },
-                { name: "React", icon: <FaReact className="text-5xl text-cyan-400" /> },
-                { name: "Tailwind", icon: <RiTailwindCssFill className="text-5xl text-sky-400" /> },
-                { name: "Bootstrap", icon: <FaBootstrap className="text-5xl text-purple-500" /> }
-            ]
-        },
-        {
-            title: "Backend",
-            items: [
-                { name: "Node.js", icon: <FaNodeJs className="text-5xl text-green-500" /> },
-                { name: "Express.js", icon: <SiExpress className="text-5xl" /> },
-                { name: "MongoDB", icon: <SiMongodb className="text-5xl text-green-600" /> }
-            ]
-        },
-        {
-            title: "Tools",
-            items: [
-                { name: "Git", icon: <FaGitAlt className="text-5xl text-orange-600" /> },
-                { name: "GitHub", icon: <FaGithub className="text-5xl" /> },
-                { name: "VS Code", icon: <VscVscode className="text-5xl text-blue-500" /> },
-                { name: "Thunder Client", icon: <TbBolt className="text-5xl text-yellow-400" /> },
-                { name: "Vercel", icon: <SiVercel className="text-5xl" /> },
-                { name: "Render", icon: <SiRender className="text-5xl text-cyan-400" /> }
-            ]
-        }
-    ];
+    const [skills, setSkills] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+
+    const iconMap = {
+
+        HTML: <FaHtml5 className="text-5xl text-orange-500" />,
+        CSS: <FaCss3Alt className="text-5xl text-blue-500" />,
+        JavaScript: <IoLogoJavascript className="text-5xl text-yellow-400" />,
+        React: <FaReact className="text-5xl text-cyan-400" />,
+        Tailwind: <RiTailwindCssFill className="text-5xl text-sky-400" />,
+        Bootstrap: <FaBootstrap className="text-5xl text-purple-500" />,
+        "Node.js": <FaNodeJs className="text-5xl text-green-500" />,
+        "Express.js": <SiExpress className="text-5xl" />,
+        MongoDB: <SiMongodb className="text-5xl text-green-600" />,
+        Git: <FaGitAlt className="text-5xl text-orange-600" />,
+        GitHub: <FaGithub className="text-5xl" />,
+        "VS Code": <VscVscode className="text-5xl text-blue-500" />,
+        "Thunder Client": <TbBolt className="text-5xl text-yellow-400" />,
+        Vercel: <SiVercel className="text-5xl" />,
+        Render: <SiRender className="text-5xl text-cyan-400" />
+
+    };
+
+    useEffect(() => {
+
+        const loadSkills = async () => {
+
+            try {
+
+                const data = await getSkills();
+
+                setSkills(data);
+
+            }
+
+            catch (error) {
+
+                console.log(error);
+
+            }
+
+            setLoading(false);
+
+        };
+
+        loadSkills();
+
+    }, []);
+
+    const categories = ["Frontend", "Backend", "Tools"];
+
+
+    if (loading) {
+
+        return (
+
+            <div className="bg-black min-h-screen flex justify-center items-center text-white text-2xl">
+
+                Loading Skills...
+
+            </div>
+
+        );
+
+    }
 
     return (
 
@@ -56,40 +91,64 @@ const Skills = () => {
 
                     </h1>
 
-                    <div className="mt-16 space-y-16">
+                    <div className="w-28 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+
+                    <div className="mt-16 space-y-10">
 
                         {
-                            skills.map((section) => (
+                            categories.map((category) => (
 
-                                <div key={section.title}>
+                                <div key={category}>
 
-                                    <h2 className="text-3xl font-bold mb-8 text-orange-500">
+                                    <h2 className="text-3xl font-bold mb-5 text-orange-500">
 
-                                        {section.title}
+                                        {category}
 
                                     </h2>
 
-                                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
                                         {
-                                            section.items.map((skill) => (
+                                            skills
+                                                .filter((skill) => skill.category === category)
+                                                .map((skill) => (
 
-                                                <div
-                                                    key={skill.name}
-                                                    className="bg-[#111] border border-gray-800 rounded-2xl p-8 flex flex-col items-center gap-5 hover:border-orange-500 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(249,115,22,0.4)] transition-all duration-300 cursor-pointer"
-                                                >
+                                                    <div
+                                                        key={skill.name}
+                                                        className="bg-[#111] border border-gray-800 rounded-2xl p-6 flex flex-col items-center gap-5 hover:border-orange-500 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(249,115,22,0.4)] transition-all duration-300 cursor-pointer"
+                                                    >
 
-                                                    {skill.icon}
+                                                        {iconMap[skill.name] || (
+                                                            <div className="text-5xl">
+                                                                💻
+                                                            </div>
+                                                        )}
 
-                                                    <h3 className="text-lg font-semibold">
+                                                        <h3 className="text-lg font-semibold">
 
-                                                        {skill.name}
+                                                            {skill.name}
 
-                                                    </h3>
+                                                        </h3>
 
-                                                </div>
+                                                        <div className="w-full bg-gray-700 rounded-full h-2 mt-3">
 
-                                            ))
+                                                            <div className="bg-orange-500 h-2 rounded-full"
+                                                                style={{ width: `${skill.level}%` }}>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <p className="text-sm text-gray-400 mt-2">
+
+                                                            {skill.level}%
+
+                                                        </p>
+
+
+                                                    </div>
+
+                                                ))
                                         }
 
                                     </div>
@@ -100,8 +159,6 @@ const Skills = () => {
                         }
 
                     </div>
-
-                    <div className="w-28 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
 
                 </div>
 

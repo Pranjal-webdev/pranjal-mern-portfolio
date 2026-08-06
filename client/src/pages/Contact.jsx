@@ -1,7 +1,67 @@
 import React from "react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { useState } from "react";
+import { sendMessage } from "../services/messageService";
 
 const Contact = ()=>{
+
+    const [loading, setLoading] = useState(false);
+
+    const [form, setForm] = useState({
+
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+
+});
+
+const handleChange = (e) => {
+
+    setForm({
+
+        ...form,
+
+        [e.target.name]: e.target.value
+
+    });
+
+};
+
+const handleSubmit = async (e) => {
+
+    e.preventDefault();
+
+    try {
+
+        setLoading(true);
+
+        await sendMessage(form);
+
+        alert("Message Sent Successfully");
+
+        setForm({
+
+            name: "",
+            email: "",
+            subject: "",
+            message: ""
+
+        });
+
+    }
+
+    catch (error) {
+
+        alert("Something went wrong");
+
+        console.log(error);
+
+    }
+
+    setLoading(false);
+
+};
 
     return(
 
@@ -107,37 +167,53 @@ const Contact = ()=>{
 
                     
 
-                    <form className="bg-zinc-900 rounded-2xl p-8 border border-zinc-800">
+                    <form onSubmit={handleSubmit} className="bg-zinc-900 rounded-2xl p-8 border border-zinc-800">
 
                         <input
+                            name="name"
+                            value={form.name}
+                            onChange={handleChange}
                             type="text"
                             placeholder="Your Name"
                             className="w-full bg-[#050505] border border-zinc-700 rounded-lg p-4 mb-5 outline-none focus:border-orange-500"
                         />
 
                         <input
+                            name="email"
+                            value={form.email}
+                            onChange={handleChange}
                             type="email"
                             placeholder="Your Email"
                             className="w-full bg-[#050505] border border-zinc-700 rounded-lg p-4 mb-5 outline-none focus:border-orange-500"
                         />
 
                         <input
+                            name="subject"
+                            value={form.subject}
+                            onChange={handleChange}
                             type="text"
                             placeholder="Subject"
                             className="w-full bg-[#050505] border border-zinc-700 rounded-lg p-4 mb-5 outline-none focus:border-orange-500"
                         />
 
                         <textarea
+                            name="message"
+                            value={form.message}
+                            onChange={handleChange}
                             rows="6"
                             placeholder="Your Message"
                             className="w-full bg-[#050505] border border-zinc-700 rounded-lg p-4 outline-none focus:border-orange-500"
                         ></textarea>
 
-                        <button
-                            className="mt-8 bg-orange-600 hover:bg-orange-700 px-8 py-4 rounded-full font-semibold duration-300"
-                        >
+                        <button className="mt-8 bg-orange-600 hover:bg-orange-700 px-8 py-4 rounded-full font-semibold duration-300">
 
-                            Send Message
+                            {
+                                loading
+                                ?
+                                "Sending..."
+                                :
+                                "Send Message"
+                            }
 
                         </button>
 

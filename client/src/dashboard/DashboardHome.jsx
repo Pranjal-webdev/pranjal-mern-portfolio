@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import { getDashboardStats } from "../services/dashboardService";
 
 const cards = [
   {
@@ -20,6 +22,27 @@ const cards = [
 ];
 
 const DashboardHome = () => {
+
+  const [stats, setStats] = useState({
+    skills: 0,
+    projects: 0,
+    messages: 0
+
+  });
+
+  useEffect(() => {
+
+    const loadStats = async () => {
+
+      const data = await getDashboardStats();
+
+      setStats(data);
+
+    };
+
+    loadStats();
+
+  }, []);
 
   return (
 
