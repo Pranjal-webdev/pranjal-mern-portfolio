@@ -4,21 +4,21 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const ai = new GoogleGenAI({
-    apiKey:process.env.GEMINI_API_KEY
+    apiKey: process.env.GEMINI_API_KEY
 });
 
 
-export const askAI = async(req,res)=>{
+export const askAI = async (req, res) => {
 
-    try{
+    try {
 
 
-        const {message}=req.body;
+        const { message } = req.body;
 
 
         const response = await ai.models.generateContent({
 
-            model:"gemini-3.6-flash",
+            model: "gemini-3.6-flash",
 
             contents: `
 You are Pranjal's AI Portfolio Assistant.
@@ -81,4 +81,63 @@ ${message}
         });
 
     }
+};
+
+
+export const generateProjectDescription = async (req, res) => {
+
+    try {
+
+        const { title, tech, features } = req.body;
+
+        const response = await ai.models.generateContent({
+
+            model: "gemini-3.6-flash",
+
+            contents: `
+You are an expert software engineer.
+
+Write a professional project description for a portfolio.
+
+Rules:
+- 5-6 lines only
+- Professional English
+- Mention technologies naturally
+- Mention important features
+- Don't use markdown
+- Don't use headings
+
+Project Name:
+${title}
+
+Technologies:
+${tech}
+
+Features:
+${features}
+`
+        });
+
+        res.json({
+
+            reply: response.text
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.log("===== PROJECT DESCRIPTION ERROR =====");
+
+        console.dir(error, { depth: null });
+
+        res.status(500).json({
+
+            message: error.message
+
+        });
+
+    }
+
 };

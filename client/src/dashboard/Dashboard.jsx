@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import SkillsAdmin from "./SkillsAdmin";
 import ProjectsAdmin from "./ProjectsAdmin";
 import MessagesAdmin from "./MessagesAdmin";
+import AIAdmin from "./AIAdmin";
 
 const Dashboard=()=>{
 
@@ -24,6 +25,8 @@ const Dashboard=()=>{
             <Route path="projects" element={<ProjectsAdmin />} />
 
             <Route path="messages" element={<MessagesAdmin />} />
+            
+            <Route path="ai" element={<AIAdmin />} />
 
 
         </Routes>
