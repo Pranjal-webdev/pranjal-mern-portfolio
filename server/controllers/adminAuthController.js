@@ -99,6 +99,10 @@ export const loginAdmin = async (req,res)=>{
 
         res.json({
 
+            success: true,
+
+            message: "Login successful",
+
             token,
 
             admin:{

@@ -1,23 +1,27 @@
 import Skill from "../models/Skill.js";
 import Project from "../models/Project.js";
 import Message from "../models/Message.js";
+import Visitor from "../models/Visitor.js";
 
 export const getDashboardStats = async (req, res) => {
 
+    const visitor = await Visitor.findOne();
+
     try {
 
-        const skills = await Skill.countDocuments();
+        const totalSkills = await Skill.countDocuments();
 
-        const projects = await Project.countDocuments();
+        const totalProjects = await Project.countDocuments();
 
-        const messages = await Message.countDocuments();
+        const totalMessages = await Message.countDocuments();
 
         res.json({
             success: true,
             stats: {
-                skills,
-                projects,
-                messages
+                totalSkills,
+                totalProjects,
+                totalMessages,
+                totalVisitors: visitor ? visitor.totalVisitors : 0
             }
         });
 

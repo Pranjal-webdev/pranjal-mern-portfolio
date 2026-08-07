@@ -15,3 +15,17 @@ export const loginAdmin=async(formData)=>{
     return data;
 
 };
+
+export const registerAdmin = async (admin) => {
+
+    const { data } = await axios.post(
+
+        "http://localhost:5001/api/ai/register",
+
+        admin
+
+    );
+
+    return data;
+
+};

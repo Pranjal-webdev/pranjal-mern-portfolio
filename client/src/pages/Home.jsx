@@ -1,6 +1,24 @@
 import React from "react";
+import { useEffect } from "react";
+import { increaseVisitor } from "../services/visitorService";
 
 const Home = () => {
+
+    useEffect(() => {
+
+    const lastVisit = localStorage.getItem("portfolioVisitor");
+
+    const now = Date.now();
+
+    if (!lastVisit || now - Number(lastVisit) > 24 * 60 * 60 * 1000) {
+
+        increaseVisitor();
+
+        localStorage.setItem("portfolioVisitor", now);
+
+    }
+
+}, []);
 
     return (
 

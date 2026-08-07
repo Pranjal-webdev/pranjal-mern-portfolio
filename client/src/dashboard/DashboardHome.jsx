@@ -2,31 +2,14 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { getDashboardStats } from "../services/dashboardService";
 
-const cards = [
-  {
-    title: "Total Skills",
-    value: 12
-  },
-  {
-    title: "Projects",
-    value: 5
-  },
-  {
-    title: "Messages",
-    value: 8
-  },
-  {
-    title: "Visitors",
-    value: 120
-  }
-];
 
 const DashboardHome = () => {
 
   const [stats, setStats] = useState({
-    skills: 0,
-    projects: 0,
-    messages: 0
+    totalSkills: 0,
+    totalProjects: 0,
+    totalMessages: 0,
+    totalVisitors: 0
 
   });
 
@@ -43,6 +26,42 @@ const DashboardHome = () => {
     loadStats();
 
   }, []);
+
+  const cards = [
+
+    {
+
+        title: "Total Skills",
+
+        value: stats.totalSkills
+
+    },
+
+    {
+
+        title: "Projects",
+
+        value: stats.totalProjects
+
+    },
+
+    {
+
+        title: "Messages",
+
+        value: stats.totalMessages
+
+    },
+
+    {
+
+        title: "Visitors",
+
+        value: stats.totalVisitors
+
+    }
+
+];
 
   return (
 

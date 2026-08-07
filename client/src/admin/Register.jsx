@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { loginAdmin } from "../services/adminServices";
+import { useState } from "react";
+import { registerAdmin } from "../services/adminServices";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
 
     const navigate = useNavigate();
+
     const [loading, setLoading] = useState(false);
 
     const [formData, setFormData] = useState({
@@ -33,29 +34,26 @@ const Login = () => {
 
         try {
 
-            const data = await loginAdmin(formData);
+            setLoading(true);
 
-            localStorage.setItem(
+            const data = await registerAdmin(formData);
 
-                "adminToken",
+            alert(data.message);
 
-                data.token
-
-            );
-
-            navigate("/dashboard");
+            navigate("/admin");
 
         }
 
         catch (error) {
 
-            alert(error.response.data.message || "Login Failed");
+            alert(error.response?.data?.message || "Registration Failed");
 
         }
 
         finally {
 
             setLoading(false);
+
         }
 
     };
@@ -66,12 +64,12 @@ const Login = () => {
 
             <form
                 onSubmit={handleSubmit}
-                className="w-[400px] bg-[#111] p-8 rounded-2xl border border-zinc-800"
+                className="w-[400px] bg-[#111] border border-zinc-800 rounded-2xl p-8"
             >
 
                 <h1 className="text-4xl font-bold text-center text-white mb-8">
 
-                    Admin <span className="text-orange-500">Login</span>
+                    Admin <span className="text-orange-500">Register</span>
 
                 </h1>
 
@@ -81,7 +79,8 @@ const Login = () => {
                     placeholder="Email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-black text-white p-4 rounded-xl border border-zinc-700 mb-5 outline-none"
+                    required
+                    className="w-full bg-black border border-zinc-700 rounded-xl p-4 text-white outline-none focus:border-orange-500 mb-5"
                 />
 
                 <input
@@ -90,10 +89,12 @@ const Login = () => {
                     placeholder="Password"
                     value={formData.password}
                     onChange={handleChange}
-                    className="w-full bg-black text-white p-4 rounded-xl border border-zinc-700 mb-6 outline-none"
+                    required
+                    className="w-full bg-black border border-zinc-700 rounded-xl p-4 text-white outline-none focus:border-orange-500 mb-6"
                 />
 
                 <button
+                    type="submit"
                     className="w-full bg-orange-500 hover:bg-orange-600 py-4 rounded-xl text-white font-semibold"
                 >
 
@@ -103,11 +104,11 @@ const Login = () => {
 
                             ?
 
-                            "Logging In..."
+                            "Registering..."
 
                             :
 
-                            "Login"
+                            "Register"
 
                     }
 
@@ -115,10 +116,23 @@ const Login = () => {
 
             </form>
 
+            <p className="text-center text-gray-400 mt-6">
+
+                Already have an account?
+
+                <span
+                    onClick={() => navigate("/admin")}
+                    className="text-orange-500 cursor-pointer ml-2"
+                >
+                    Login
+                </span>
+
+            </p>
+
         </div>
 
     );
 
-}
+};
 
-export default Login;
+export default Register;

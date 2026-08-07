@@ -12,7 +12,10 @@ import Dashboard from "./dashboard/Dashboard";
 const AppContent = () => {
 
     const location = useLocation();
-    const isDashboard = location.pathname.startsWith("/dashboard");
+
+    const hideLayout =
+        location.pathname.startsWith("/dashboard")||
+        location.pathname.startsWith("/admin");
 
 
     return (
@@ -20,8 +23,8 @@ const AppContent = () => {
     
         <>
 
-            {!isDashboard && <Navbar />}
-            {!isDashboard && <AIChatbot />}  
+            {!hideLayout && <Navbar />}
+            {!hideLayout && <AIChatbot />}  
 
             <Routes>
 

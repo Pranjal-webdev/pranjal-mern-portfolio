@@ -9,6 +9,7 @@ import skillRoute from "./routes/skillRoute.js";
 import projectRoute from "./routes/projectRoute.js";
 import messageRoute from "./routes/messageRoute.js";
 import dashboardRoute from "./routes/dashboardRoute.js";
+import visitorRoutes from "./routes/visitorRoute.js";
 
 dotenv.config();
 connectDB();
@@ -29,6 +30,7 @@ app.use("/api/skills", skillRoute);
 app.use("/api/projects", projectRoute);
 app.use("/api/messages", messageRoute);
 app.use("/api/dashboard", dashboardRoute);
+app.use("/api/visitors", visitorRoutes);
 
 
 app.get("/",(req,res)=>{

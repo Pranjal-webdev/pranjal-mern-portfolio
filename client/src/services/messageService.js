@@ -2,6 +2,17 @@ import axios from "axios";
 
 const API = "http://localhost:5001/api/messages";
 
+
+const getConfig = () => ({
+
+    headers: {
+
+        Authorization: `Bearer ${localStorage.getItem("adminToken")}`
+
+    }
+
+});
+
 export const sendMessage = async (message) => {
 
     const { data } = await axios.post(API, message);
@@ -12,7 +23,14 @@ export const sendMessage = async (message) => {
 
 export const getMessages = async () => {
 
-    const { data } = await axios.get(API);
+    const token = localStorage.getItem("adminToken");
+
+    const { data } = await axios.get(API, {
+
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
 
     return data.messages;
 
@@ -20,7 +38,16 @@ export const getMessages = async () => {
 
 export const deleteMessage = async (id) => {
 
-    const { data } = await axios.delete(`${API}/${id}`);
+    const token = localStorage.getItem("adminToken");
+
+    const { data } = await axios.delete(`${API}/${id}`, {
+
+        headers: {
+            
+            Authorization: `Bearer ${token}`
+
+        }
+    });
 
     return data;
 
