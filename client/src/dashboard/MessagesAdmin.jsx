@@ -41,33 +41,33 @@ const MessagesAdmin = () => {
 
     return (
 
-        <div className="text-white">
+        <div className="text-white w-full min-w-0 overflow-hidden">
 
-            <h1 className="text-4xl font-bold mb-8">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8">
 
                 Contact Messages
 
             </h1>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto w-ful">
 
-                <table className="w-full">
+                <table className="w-full min-w-[750px]">
 
                     <thead>
 
                         <tr className="bg-orange-500">
 
-                            <th className="p-4">Name</th>
+                            <th className="p-3 sm:p-4">Name</th>
 
-                            <th>Email</th>
+                            <th className="p-3 sm:p-4">Email</th>
 
-                            <th>Subject</th>
+                            <th className="p-3 sm:p-4">Subject</th>
 
-                            <th>Message</th>
+                            <th className="p-3 sm:p-4">Message</th>
 
-                            <th>Date</th>
+                            <th className="p-3 sm:p-4">Date</th>
 
-                            <th>Action</th>
+                            <th className="p-3 sm:p-4">Action</th>
 
                         </tr>
 
@@ -82,31 +82,31 @@ const MessagesAdmin = () => {
                                 className="border-b border-zinc-800 text-center"
                             >
 
-                                <td className="p-4">
+                                <td className="p-3 sm:p-4">
 
                                     {message.name}
 
                                 </td>
 
-                                <td>
+                                <td className="p-3 sm:p-4">
 
                                     {message.email}
 
                                 </td>
 
-                                <td>
+                                <td className="p-3 sm:p-4">
 
                                     {message.subject}
 
                                 </td>
 
-                                <td>
+                                <td className="p-3 sm:p-4">
 
                                     {message.message.substring(0,40)}...
 
                                 </td>
 
-                                <td>
+                                <td className="p-3 sm:p-4">
 
                                     {
                                         new Date(message.createdAt)
@@ -115,7 +115,7 @@ const MessagesAdmin = () => {
 
                                 </td>
 
-                                <td>
+                                <td className="p-3 sm:p-4">
 
                                     <button
                                     onClick={() => handleDelete(message._id)}

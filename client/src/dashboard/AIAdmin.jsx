@@ -22,6 +22,13 @@ const AIAdmin = () => {
 
     const handleGenerate = async () => {
 
+        if (!form.title.trim() || !form.tech.trim() || !form.features.trim()) {
+
+        alert("Please fill all fields");
+
+        return;
+    }
+
         try {
 
             setLoading(true);
@@ -34,9 +41,11 @@ const AIAdmin = () => {
 
             console.log(err);
 
-        }
+        }finally{
+             
+            setLoading(false);
 
-        setLoading(false);
+        }
 
     };
 
@@ -78,7 +87,7 @@ const AIAdmin = () => {
                     placeholder="Project Name"
                     value={form.title}
                     onChange={handleChange}
-                    className="w-full bg-black p-4 rounded-xl"
+                    className="w-full bg-black p-4 rounded-xl required"
                 />
 
                 <input
@@ -86,7 +95,7 @@ const AIAdmin = () => {
                     placeholder="React, Node.js, MongoDB"
                     value={form.tech}
                     onChange={handleChange}
-                    className="w-full bg-black p-4 rounded-xl"
+                    className="w-full bg-black p-4 rounded-xl required"
                 />
 
                 <textarea
@@ -95,7 +104,7 @@ const AIAdmin = () => {
                     placeholder="Authentication, Admin Panel, Booking..."
                     value={form.features}
                     onChange={handleChange}
-                    className="w-full bg-black p-4 rounded-xl"
+                    className="w-full bg-black p-4 rounded-xl required"
                 />
 
                 <button

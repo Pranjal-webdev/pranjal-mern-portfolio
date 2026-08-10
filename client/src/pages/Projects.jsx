@@ -52,7 +52,7 @@ if (loading) {
 
         <section id="projects">
 
-            <div className="bg-[#050505] text-white py-20">
+            <div className="bg-[#050505] text-white py-20 min-h-screen">
 
                 <div className="max-w-7xl mx-auto px-6">
 

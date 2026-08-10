@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { addSkill, getSkills,updateSkill,deleteSkill } from "../services/skillService";
+import { addSkill, getSkills, updateSkill, deleteSkill } from "../services/skillService";
 
 const SkillsAdmin = () => {
 
@@ -77,44 +77,44 @@ const SkillsAdmin = () => {
 
     const handleEdit = (skill) => {
 
-  setForm({
-    name: skill.name,
-    category: skill.category,
-    level: skill.level,
-    icon: skill.icon
-  });
+        setForm({
+            name: skill.name,
+            category: skill.category,
+            level: skill.level,
+            icon: skill.icon
+        });
 
-  setEditingId(skill._id);
+        setEditingId(skill._id);
 
-};
+    };
 
 
-const handleDelete = async (id) => {
+    const handleDelete = async (id) => {
 
-  const confirmDelete = window.confirm(
-    "Delete this skill?"
-  );
+        const confirmDelete = window.confirm(
+            "Delete this skill?"
+        );
 
-  if (!confirmDelete) return;
+        if (!confirmDelete) return;
 
-  try {
+        try {
 
-    await deleteSkill(id);
+            await deleteSkill(id);
 
-    loadSkills();
+            loadSkills();
 
-  } catch (error) {
+        } catch (error) {
 
-    console.log(error);
+            console.log(error);
 
-  }
+        }
 
-};
+    };
 
     return (
 
-        <div className="text-white text-1xl">
-            <h1 className="text-2xl font-bold mb-8">
+        <div className="text-white w-full max-w-full min-w-0 overflow-hidden">
+            <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">
 
                 Skills Management
 
@@ -122,10 +122,10 @@ const handleDelete = async (id) => {
 
             <form
                 onSubmit={handleSubmit}
-                className="bg-[#151515] p-8 rounded-2xl border border-zinc-800"
+                className="bg-[#151515] p-4 sm:p-6 lg:p-8 rounded-2xl border border-zinc-800"
             >
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
 
                     <input
                         type="text"
@@ -133,7 +133,7 @@ const handleDelete = async (id) => {
                         placeholder="Skill Name"
                         value={form.name}
                         onChange={handleChange}
-                        className="bg-[#0d0d0d] border border-zinc-700 rounded-xl p-4 outline-none"
+                        className="bg-[#0d0d0d] border border-zinc-700 rounded-xl p-3 sm:p-4 outline-none"
                         required
                     />
 
@@ -143,14 +143,14 @@ const handleDelete = async (id) => {
                         placeholder="Icon Name (FaReact)"
                         value={form.icon}
                         onChange={handleChange}
-                        className="bg-[#0d0d0d] border border-zinc-700 rounded-xl p-4 outline-none"
+                        className="bg-[#0d0d0d] border border-zinc-700 rounded-xl p-3 sm:p-4 outline-none"
                     />
 
                     <select
                         name="category"
                         value={form.category}
                         onChange={handleChange}
-                        className="bg-[#0d0d0d] border border-zinc-700 rounded-xl p-4"
+                        className="bg-[#0d0d0d] border border-zinc-700 rounded-xl p-3 sm:p-4"
                     >
 
                         <option>Frontend</option>
@@ -159,9 +159,9 @@ const handleDelete = async (id) => {
 
                     </select>
 
-                    <div>
+                    <div className="w-full">
 
-                        <label>
+                        <label className="text-sm sm:text-base">
 
                             Skill Level : {form.level}%
 
@@ -182,36 +182,36 @@ const handleDelete = async (id) => {
                 </div>
 
                 <button
-                    className="mt-8 bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-xl font-semibold"
+                    className="mt-6 sm:mt-8 bg-orange-500 hover:bg-orange-600 px-6 sm:px-8 py-3 rounded-xl font-semibold w-full sm:w-auto"
                 >
 
                     {loading
                         ? "Saving..."
                         : editingId
-                        ? "Update Skill"
-                        : "Add Skill"}
+                            ? "Update Skill"
+                            : "Add Skill"}
 
                 </button>
 
             </form>
 
-            <div className="mt-10 overflow-x-auto">
+            <div className="mt-8 sm:mt-10 overflow-x-auto w-full">
 
-                <table className="w-full border-collapse">
+                <table className="w-full min-w-[650px] border-collapse">
 
                     <thead>
 
                         <tr className="bg-orange-500">
 
-                            <th className="p-4">Name</th>
+                            <th className="p-3 sm:p-4">Name</th>
 
-                            <th>Category</th>
+                            <th className="p-3 sm:p-4">Category</th>
 
-                            <th>Level</th>
+                            <th className="p-3 sm:p-4">Level</th>
 
-                            <th>Icon</th>
+                            <th className="p-3 sm:p-4">Icon</th>
 
-                            <th>Actions</th>
+                            <th className="p-3 sm:p-4">Actions</th>
 
                         </tr>
 
@@ -226,43 +226,47 @@ const handleDelete = async (id) => {
                                 className="border-b border-zinc-800 text-center"
                             >
 
-                                <td className="p-4">
+                                <td className="p-3 sm:p-4">
 
                                     {skill.name}
 
                                 </td>
 
-                                <td>
+                                <td className="p-3 sm:p-4">
 
                                     {skill.category}
 
                                 </td>
 
-                                <td>
+                                <td className="p-3 sm:p-4">
 
                                     {skill.level}%
 
                                 </td>
 
-                                <td>
+                                <td className="p-3 sm:p-4">
 
                                     {skill.icon}
 
                                 </td>
 
-                                <td>
+                                <td className="p-3 sm:p-4">
 
-                                    <button onClick={() => handleEdit(skill)} className="bg-blue-500 px-4 py-2 rounded mr-2">
+                                    <div className="flex flex-col sm:flex-row gap-2 justify-center">
 
-                                        Edit
+                                        <button onClick={() => handleEdit(skill)} className="bg-blue-500 px-4 py-2 rounded mr-2">
 
-                                    </button>
+                                            Edit
 
-                                    <button onClick={() => handleDelete(skill._id)} className="bg-red-500 px-4 py-2 rounded">
+                                        </button>
 
-                                        Delete
+                                        <button onClick={() => handleDelete(skill._id)} className="bg-red-500 px-4 py-2 rounded">
 
-                                    </button>
+                                            Delete
+
+                                        </button>
+
+                                    </div>
 
                                 </td>
 

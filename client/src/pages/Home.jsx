@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { increaseVisitor } from "../services/visitorService";
+import { Link } from "react-router-dom";
 
 const Home = () => {
 
@@ -46,7 +47,7 @@ const Home = () => {
 
                 <div className="flex flex-wrap gap-6 mt-10">
 
-                    <button className="text-white bg-orange-600 hover:bg-orange-700 p-2 rounded-lg">View Projects</button>
+                    <button className="text-white bg-orange-600 hover:bg-orange-700 p-2 rounded-lg"><Link to="/projects">View Projects</Link></button>
                     <button className="border border-white hover:bg-orange-500 hover:text-white text-white p-2 rounded-lg">Download Resume</button>
                 </div>
 

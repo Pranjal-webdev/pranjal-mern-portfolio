@@ -81,7 +81,7 @@ const Skills = () => {
 
         <section id="skills">
 
-            <div className="bg-black text-white py-20">
+            <div className="bg-black text-white py-20 min-h-screen">
 
                 <div className="max-w-7xl mx-auto px-6">
 
@@ -157,13 +157,11 @@ const Skills = () => {
 
                             ))
                         }
-
                     </div>
 
                 </div>
 
             </div>
-
         </section>
 
     );

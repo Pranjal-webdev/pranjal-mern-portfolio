@@ -10,11 +10,11 @@ const Dashboard=()=>{
 
     return (
 
-    <div className="flex bg-black min-h-screen">
+    <div className="flex min-h-screen w-full bg-black overflow-x-hidden">
 
       <Sidebar />
 
-      <div className="flex-1 p-10">
+      <div className="flex-1 min-w-0 p-4 sm:p-6 lg:p-10">
 
         <Routes>
 

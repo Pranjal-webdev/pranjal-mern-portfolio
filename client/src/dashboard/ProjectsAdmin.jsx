@@ -123,9 +123,9 @@ const ProjectsAdmin = () => {
 
     return (
 
-        <div className="text-white">
+        <div className="text-white w-full min-w-0 overflow-hidden">
 
-            <h1 className="text-4xl font-bold mb-8">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8">
 
                 Projects Management
 
@@ -133,17 +133,17 @@ const ProjectsAdmin = () => {
 
             <form
                 onSubmit={handleSubmit}
-                className="bg-[#151515] border border-zinc-800 rounded-2xl p-8"
+                className="bg-[#151515] border border-zinc-800 rounded-2xl p-4 sm:p-6 lg:p-8"
             >
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
 
                     <input
                         name="title"
                         value={form.title}
                         onChange={handleChange}
                         placeholder="Project Title"
-                        className="bg-black p-4 rounded-xl"
+                        className="bg-black p-3 sm:p-4 rounded-xl"
                         required
                     />
 
@@ -152,7 +152,7 @@ const ProjectsAdmin = () => {
                         value={form.image}
                         onChange={handleChange}
                         placeholder="Image URL"
-                        className="bg-black p-4 rounded-xl"
+                        className="bg-black p-3 sm:p-4 rounded-xl"
                     />
 
                     <input
@@ -160,7 +160,7 @@ const ProjectsAdmin = () => {
                         value={form.github}
                         onChange={handleChange}
                         placeholder="Github Link"
-                        className="bg-black p-4 rounded-xl"
+                        className="bg-black p-3 sm:p-4 rounded-xl"
                     />
 
                     <input
@@ -168,7 +168,7 @@ const ProjectsAdmin = () => {
                         value={form.live}
                         onChange={handleChange}
                         placeholder="Live Demo"
-                        className="bg-black p-4 rounded-xl"
+                        className="bg-black p-3 sm:p-4 rounded-xl"
                     />
 
                 </div>
@@ -178,7 +178,7 @@ const ProjectsAdmin = () => {
                     value={form.description}
                     onChange={handleChange}
                     placeholder="Description"
-                    className="bg-black p-4 rounded-xl w-full mt-6"
+                    className="bg-black p-3 sm:p-4 rounded-xl w-full mt-6"
                     rows="5"
                     required
                 />
@@ -188,10 +188,10 @@ const ProjectsAdmin = () => {
                     value={form.technologies}
                     onChange={handleChange}
                     placeholder="React, Node, MongoDB"
-                    className="bg-black p-4 rounded-xl w-full mt-6"
+                    className="bg-black p-3 sm:p-4 rounded-xl w-full mt-6"
                 />
 
-                <label className="flex items-center gap-3 mt-6">
+                <label className="flex items-center gap-5 sm:mt-6">
 
                     <input
                         type="checkbox"
@@ -204,66 +204,70 @@ const ProjectsAdmin = () => {
 
                 </label>
 
-                <button
-                    className="mt-8 bg-orange-500 hover:bg-orange-600 px-8 py-3 rounded-xl"
-                >
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8">
 
-                    {loading ? "Saving..."
-                        : editingId
-                            ? "Update Project"
-                            : "Add Project"
+                    <button
+                        className="bg-orange-500 hover:bg-orange-600 px-6 sm:px-8 py-3 rounded-xl w-full sm:w-auto"
+                    >
+
+                        {loading ? "Saving..."
+                            : editingId
+                                ? "Update Project"
+                                : "Add Project"
+                        }
+
+                    </button>
+
+                    {
+                        editingId && (
+
+                            <button
+                                type="button"
+                                onClick={() => {
+
+                                    setEditingId(null);
+
+                                    setForm({
+                                        title: "",
+                                        description: "",
+                                        image: "",
+                                        github: "",
+                                        live: "",
+                                        technologies: "",
+                                        featured: false
+                                    });
+
+                                }}
+
+                                className="bg-gray-700 hover:bg-gray-800 px-6 sm:px-8 py-3 rounded-xl w-full sm:w-auto"
+                            >
+
+                                Cancel
+
+                            </button>
+
+                        )
                     }
 
-                </button>
-
-                {
-                    editingId && (
-
-                        <button
-                            type="button"
-                            onClick={() => {
-
-                                setEditingId(null);
-
-                                setForm({
-                                    title: "",
-                                    description: "",
-                                    image: "",
-                                    github: "",
-                                    live: "",
-                                    technologies: "",
-                                    featured: false
-                                });
-
-                            }}
-
-                            className="mt-8 ml-4 bg-gray-700 hover:bg-gray-800 px-8 py-3 rounded-xl"
-                        >
-
-                            Cancel
-
-                        </button>
-
-                    )
-                }
+                </div>
 
             </form>
 
-            <div className="mt-10 overflow-x-auto">
+            <div className="mt-8 sm:mt-10 overflow-x-auto w-full">
 
-                <table className="w-full">
+                <table className="w-full min-w-[650px]">
 
                     <thead>
 
                         <tr className="bg-orange-500">
 
-                            <th className="p-4">Title</th>
+                            <th className="p-3 sm:p-4">Title</th>
 
-                            <th>Description</th>
+                            <th className="p-3 sm:p-4">Description</th>
 
-                            <th>Featured</th>
+                            <th className="p-3 sm:p-4">Featured</th>
 
-                            <th>Actions</th>
+                            <th className="p-3 sm:p-4">Actions</th>
 
                         </tr>
 
@@ -278,30 +282,32 @@ const ProjectsAdmin = () => {
                                 className="border-b border-zinc-800 text-center"
                             >
 
-                                <td className="p-4">
+                                <td className=""p-3 sm:p-4>
 
                                     {project.title}
 
                                 </td>
 
-                                <td>
+                                <td className="p-3 sm:p-4">
 
                                     {project.description.substring(0, 40)}...
 
                                 </td>
 
-                                <td>
+                                <td className="p-3 sm:p-4">
 
                                     {project.featured ? "⭐" : "-"}
 
                                 </td>
 
-                                <td>
+                                <td className="p-3 sm:p-4">
 
-                                    <button className="bg-blue-500 px-4 py-2 rounded mr-2"
-                                        onClick={() => {
+                                    <div className="flex flex-col sm:flex-row gap-2 justify-center">
 
-                                            setEditingId(project._id);
+                                        <button className="bg-blue-500 px-4 py-2 rounded mr-2"
+                                            onClick={() => {
+
+                                                setEditingId(project._id);
 
                                             setForm({
 
@@ -333,6 +339,8 @@ const ProjectsAdmin = () => {
                                         Delete
 
                                     </button>
+
+                                    </div>
 
                                 </td>
 
