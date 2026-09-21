@@ -1,16 +1,73 @@
-# React + Vite
+# 🚀 Pranjal - MERN Stack Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive and full-stack developer portfolio built with the MERN stack.  
+The portfolio includes an admin dashboard, project and skill management, contact messages, visitor tracking and an AI-powered project description generator.
 
-Currently, two official plugins are available:
+## 🌐 About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This portfolio is designed to showcase my skills, projects and experience as a MERN Stack Developer.
 
-## React Compiler
+It includes a separate admin panel that allows managing portfolio content dynamically instead of hardcoding everything on the frontend.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+### 👨‍💻 Portfolio
+- Responsive home page
+- About section
+- Dynamic skills section
+- Dynamic projects section
+- Contact form
+- Resume download
+- GitHub and live project links
+- Responsive design for desktop, tablet and mobile
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🔐 Admin Dashboard
+- Secure admin login using JWT
+- Password hashing with bcrypt
+- Protected admin routes
+- Dashboard statistics
+- Skills CRUD operations
+- Projects CRUD operations
+- Contact message management
+- Visitor count
+- AI-powered project description generation
+
+### 🤖 AI Integration
+- Generate project descriptions using AI
+- Admin-side project description generator
+- Input validation before generating content
+
+### 📩 Contact System
+- Visitors can send messages through the contact form
+- Messages are stored in MongoDB
+- Admin can view and delete messages
+
+### 👁️ Visitor Tracking
+- Tracks portfolio visitors
+- Prevents repeated counting from the same browser within a 24-hour period
+- Visitor count is displayed in the admin dashboard
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- Vite
+- Tailwind CSS
+- React Router
+- Axios
+- React Icons
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT
+- bcryptjs
+
+### Tools & Services
+- Git & GitHub
+- MongoDB Atlas
+- Cloudinary
+- Thunder Client
+- VS Code
