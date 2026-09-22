@@ -1,14 +1,10 @@
 import express from "express";
 import { askAI, generateProjectDescription } from "../controllers/aiController.js";
-import { loginAdmin } from "../controllers/adminAuthController.js";
-
+import adminAuth from "../middleware/adminAuth.js";
 
 const router = express.Router();
 
-
-router.post("/chat", askAI);
-router.post("/login",loginAdmin);
-router.post("/project-description", generateProjectDescription);
-
+router.post("/chat", adminAuth, askAI);
+router.post("/project-description", adminAuth, generateProjectDescription);
 
 export default router;

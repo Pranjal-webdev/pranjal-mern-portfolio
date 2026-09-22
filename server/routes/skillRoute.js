@@ -6,11 +6,8 @@ import {addSkill,getSkills,updateSkill,deleteSkill} from "../controllers/skillCo
 const router = express.Router();
 
 router.post("/", adminAuth, addSkill);
-
 router.get("/", getSkills);
-
 router.put("/:id", adminAuth, updateSkill);
-
 router.delete("/:id", adminAuth, deleteSkill);
 
 export default router;
