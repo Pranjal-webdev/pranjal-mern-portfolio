@@ -6,7 +6,6 @@ const SkillsAdmin = () => {
     const [form, setForm] = useState({
         name: "",
         category: "Frontend",
-        level: 80,
         icon: ""
     });
 
@@ -56,7 +55,6 @@ const SkillsAdmin = () => {
             setForm({
                 name: "",
                 category: "Frontend",
-                level: 80,
                 icon: ""
             });
 
@@ -80,7 +78,6 @@ const SkillsAdmin = () => {
         setForm({
             name: skill.name,
             category: skill.category,
-            level: skill.level,
             icon: skill.icon
         });
 
@@ -160,12 +157,6 @@ const SkillsAdmin = () => {
                     </select>
 
                     <div className="w-full">
-
-                        <label className="text-sm sm:text-base">
-
-                            Skill Level : {form.level}%
-
-                        </label>
 
                         <input
                             type="range"

@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import AIChatbot from "./components/AIChatbot";
 import Login from "./admin/Login";
 import Dashboard from "./dashboard/Dashboard";
+import Register from "./admin/Register";
 
 const AppContent = () => {
 
@@ -39,6 +40,8 @@ const AppContent = () => {
                 <Route path="/contact" element={<Contact />} />
 
                 <Route path="/admin" element={<Login/>}/>
+
+                <Route path="/register" element={<Register/>}/>
 
                 <Route path="/dashboard/*" element={<Dashboard/>}/>
 

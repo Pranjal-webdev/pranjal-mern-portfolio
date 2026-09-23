@@ -11,7 +11,6 @@ const Register = () => {
     const [formData, setFormData] = useState({
 
         email: "",
-
         password: ""
 
     });
