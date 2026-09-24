@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getSkills } from "../services/skillService";
 import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaNodeJs, FaGitAlt, FaGithub } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
-import { SiExpress, SiMongodb, SiVercel, SiRender } from "react-icons/si";
+import { SiExpress, SiMongodb, SiVercel, SiRender, SiMongoose } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { TbBolt } from "react-icons/tb";
 import { RiTailwindCssFill } from "react-icons/ri"
@@ -16,20 +16,36 @@ const Skills = () => {
 
     const iconMap = {
 
-        HTML: <FaHtml5 className="text-5xl text-orange-500" />,
-        CSS: <FaCss3Alt className="text-5xl text-blue-500" />,
+        HTML5: <FaHtml5 className="text-5xl text-orange-500" />,
+
+        CSS3: <FaCss3Alt className="text-5xl text-blue-500" />,
+
         JavaScript: <IoLogoJavascript className="text-5xl text-yellow-400" />,
-        React: <FaReact className="text-5xl text-cyan-400" />,
-        Tailwind: <RiTailwindCssFill className="text-5xl text-sky-400" />,
+
+        "React.js": <FaReact className="text-5xl text-cyan-400" />,
+
+        "Tailwind CSS": <RiTailwindCssFill className="text-5xl text-sky-400" />,
+
         Bootstrap: <FaBootstrap className="text-5xl text-purple-500" />,
+
         "Node.js": <FaNodeJs className="text-5xl text-green-500" />,
+
         "Express.js": <SiExpress className="text-5xl" />,
+
         MongoDB: <SiMongodb className="text-5xl text-green-600" />,
+
+        Mongoose: <SiMongoose className="text-5xl text-red-500" />,
+        
         Git: <FaGitAlt className="text-5xl text-orange-600" />,
+
         GitHub: <FaGithub className="text-5xl" />,
+
         "VS Code": <VscVscode className="text-5xl text-blue-500" />,
+
         "Thunder Client": <TbBolt className="text-5xl text-yellow-400" />,
+
         Vercel: <SiVercel className="text-5xl" />,
+
         Render: <SiRender className="text-5xl text-cyan-400" />
 
     };
@@ -60,7 +76,7 @@ const Skills = () => {
 
     }, []);
 
-    const categories = ["Frontend", "Backend", "Tools"];
+    const categories = ["Frontend", "Backend", "Database", "Tools"];
 
 
     if (loading) {

@@ -20,8 +20,8 @@ export const registerAdmin = async (admin) => {
 
     const { data } = await axios.post(
 
-        "http://localhost:5001/api/ai/register",
-
+        `${API}/register`,
+        
         admin
 
     );

@@ -1,7 +1,5 @@
 import Skill from "../models/Skill.js";
 
-
-// to Add Skill
 export const addSkill = async (req, res) => {
   try {
     const skill = await Skill.create(req.body);
@@ -21,8 +19,6 @@ export const addSkill = async (req, res) => {
   }
 };
 
-
-// to Get All Skills
 export const getSkills = async (req, res) => {
   try {
 
@@ -44,7 +40,6 @@ export const getSkills = async (req, res) => {
 };
 
 
-// to Update Skill
 export const updateSkill = async (req, res) => {
   try {
 
@@ -72,7 +67,6 @@ export const updateSkill = async (req, res) => {
 };
 
 
-// to Delete Skill
 export const deleteSkill = async (req, res) => {
   try {
 

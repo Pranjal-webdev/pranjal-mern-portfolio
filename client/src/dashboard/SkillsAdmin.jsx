@@ -152,23 +152,10 @@ const SkillsAdmin = () => {
 
                         <option>Frontend</option>
                         <option>Backend</option>
+                        <option>Database</option>
                         <option>Tools</option>
 
                     </select>
-
-                    <div className="w-full">
-
-                        <input
-                            type="range"
-                            min="1"
-                            max="100"
-                            name="level"
-                            value={form.level}
-                            onChange={handleChange}
-                            className="w-full mt-2"
-                        />
-
-                    </div>
 
                 </div>
 
@@ -198,8 +185,6 @@ const SkillsAdmin = () => {
 
                             <th className="p-3 sm:p-4">Category</th>
 
-                            <th className="p-3 sm:p-4">Level</th>
-
                             <th className="p-3 sm:p-4">Icon</th>
 
                             <th className="p-3 sm:p-4">Actions</th>
@@ -226,12 +211,6 @@ const SkillsAdmin = () => {
                                 <td className="p-3 sm:p-4">
 
                                     {skill.category}
-
-                                </td>
-
-                                <td className="p-3 sm:p-4">
-
-                                    {skill.level}%
 
                                 </td>
 
