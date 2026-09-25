@@ -1,25 +1,52 @@
-import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { increaseVisitor } from "../services/visitorService";
 import { Link } from "react-router-dom";
 
 const Home = () => {
 
+    const [text, setText] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    const typingText = "Full Stack Web Developer";
+
+    useEffect(() => {
+        const speed = isDeleting ? 70 : 120;
+
+        const timer = setTimeout(() => {
+            if (!isDeleting) {
+                setText(typingText.slice(0, text.length + 1));
+
+                if (text.length === typingText.length) {
+                    setIsDeleting(true);
+                }
+            } else {
+                setText(typingText.slice(0, text.length - 1));
+
+                if (text.length === 0) {
+                    setIsDeleting(false);
+                }
+            }
+        }, text.length === typingText.length ? 1500 : speed);
+
+        return () => clearTimeout(timer);
+    }, [text, isDeleting]);
+
+
     useEffect(() => {
 
-    const lastVisit = localStorage.getItem("portfolioVisitor");
+        const lastVisit = localStorage.getItem("portfolioVisitor");
 
-    const now = Date.now();
+        const now = Date.now();
 
-    if (!lastVisit || now - Number(lastVisit) > 24 * 60 * 60 * 1000) {
+        if (!lastVisit || now - Number(lastVisit) > 24 * 60 * 60 * 1000) {
 
-        increaseVisitor();
+            increaseVisitor();
 
-        localStorage.setItem("portfolioVisitor", now);
+            localStorage.setItem("portfolioVisitor", now);
 
-    }
+        }
 
-}, []);
+    }, []);
 
     return (
 
@@ -33,7 +60,10 @@ const Home = () => {
 
                     <h1 className="text-5xl md:text-7xl font-extrabold leading-tight">Pranjal Pundir</h1>
 
-                    <h2 className="text-3xl text-gray-300 mt-6">Full Stack Web Developer</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold">
+                        {text}
+                        <span className="text-orange-500 animate-pulse">|</span>
+                    </h2>
 
                     <p className="text-gray-400 mt-8 leading-8 text-lg max-w-xl">
 
@@ -63,7 +93,7 @@ const Home = () => {
 
                 {/*FOR  MOBILE CIRCLE */}
 
-                 <div className="flex md:hidden justify-center mt-14">
+                <div className="flex md:hidden justify-center mt-14">
 
                     <div className="w-72 h-72 rounded-full border-4 border-orange-500 overflow-hidden shadow-[0_0_50px_rgba(255,115,0,0.5)]">
 
