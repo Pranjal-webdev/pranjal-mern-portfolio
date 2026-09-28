@@ -4,8 +4,7 @@ import { getProjects } from "../services/projectService";
 const Projects = () => {
 
     const [projects, setProjects] = useState([]);
-
-const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
 useEffect(() => {
 

@@ -142,7 +142,7 @@ const handleSubmit = async (e) => {
                         <div className="flex gap-6 mt-10">
 
                             <a
-                                href="https://github.com/"
+                                href="https://github.com/Pranjal-webdev"
                                 target="_blank"
                                 rel="noreferrer"
                             >
@@ -152,7 +152,7 @@ const handleSubmit = async (e) => {
                             </a>
 
                             <a
-                                href="https://linkedin.com/"
+                                href="https://www.linkedin.com/in/pranjal-pundir-webdev/"
                                 target="_blank"
                                 rel="noreferrer"
                             >
@@ -165,7 +165,6 @@ const handleSubmit = async (e) => {
 
                     </div>
 
-                    
 
                     <form onSubmit={handleSubmit} className="bg-zinc-900 rounded-2xl p-8 border border-zinc-800">
 

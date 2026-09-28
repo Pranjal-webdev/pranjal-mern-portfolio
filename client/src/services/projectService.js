@@ -2,8 +2,6 @@ import axios from "axios";
 
 const API = "http://localhost:5001/api/projects";
 
-const token = localStorage.getItem("adminToken");
-
 const getConfig = {
 
     headers: {
@@ -24,7 +22,7 @@ export const getProjects = async () => {
 
 export const addProject = async (project) => {
 
-  const { data } = await axios.post(API, project, getConfig());
+  const { data } = await axios.post(API, project, getConfig);
 
   return data.project;
   
@@ -32,7 +30,7 @@ export const addProject = async (project) => {
 
 export const updateProject = async (id, project) => {
 
-  const { data } = await axios.put(`${API}/${id}`, project, getConfig());
+  const { data } = await axios.put(`${API}/${id}`, project, getConfig);
 
   return data.project;
 
@@ -40,7 +38,7 @@ export const updateProject = async (id, project) => {
 
 export const deleteProject = async (id) => {
 
-  const { data } = await axios.delete(`${API}/${id}`, getConfig());
+  const { data } = await axios.delete(`${API}/${id}`, getConfig);
 
   return data;
 

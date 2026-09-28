@@ -27,21 +27,21 @@ const About = () => {
 
                         <div className="flex justify-center gap-15 mt-8">
 
-                            <a href="#">
+                            <a href="https://github.com/Pranjal-webdev">
                                 <img
                                     src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="Github"
                                     className="w-10 hover:scale-110 duration-300"
                                 />
                             </a>
 
-                            <a href="#">
+                            <a href="mailto:pranjalpundir37@gmail.com?subject=Portfolio%20Contact">
                                 <img
                                     src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email"
                                     className="w-10 hover:scale-110 duration-300"
                                 />
                             </a>
 
-                            <a href="#">
+                            <a href="https://www.linkedin.com/in/pranjal-pundir-webdev/">
                                 <img
                                     src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="Linkedin"
                                     className="w-10 hover:scale-110 duration-300"
