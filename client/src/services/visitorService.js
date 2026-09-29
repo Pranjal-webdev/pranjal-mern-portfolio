@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5001/api/visitors";
+const API = "http://${import.meta.env.VITE_API_URL}/api/visitors";
 
 export const increaseVisitor = async () => {
 

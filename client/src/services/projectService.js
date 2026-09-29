@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5001/api/projects";
+const API = "http://${import.meta.env.VITE_API_URL}/api/projects";
 
 const getConfig = {
 

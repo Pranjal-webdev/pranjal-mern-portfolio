@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:5001/api/skills";
+const API = "http://${import.meta.env.VITE_API_URL}/api/skills";
 
 
 const getConfig = () => ({
