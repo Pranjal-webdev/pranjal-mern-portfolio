@@ -19,13 +19,22 @@ console.log("Server starting...");
 const app = express();
 
 
-app.use(cors());
+const allowedOrigins = [
+    "http://localhost:5173",
+    process.env.CLIENT_URL
+].filter(Boolean);
+
+app.use(
+    cors({
+        origin: allowedOrigins
+    })
+);
 
 app.use(express.json());
 
 
 app.use("/api/ai", aiRoute);
-app.use("/api/admin",adminAuthRoutes);
+app.use("/api/admin", adminAuthRoutes);
 app.use("/api/skills", skillRoute);
 app.use("/api/projects", projectRoute);
 app.use("/api/messages", messageRoute);
@@ -33,14 +42,14 @@ app.use("/api/dashboard", dashboardRoute);
 app.use("/api/visitors", visitorRoutes);
 
 
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
     res.send("AI Server Running");
 });
 
 
 const PORT = process.env.PORT || 5001;
 
-app.listen(PORT, "0.0.0.0",  () => {
+app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
 
