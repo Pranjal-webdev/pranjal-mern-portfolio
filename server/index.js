@@ -41,16 +41,15 @@ app.use("/api/messages", messageRoute);
 app.use("/api/dashboard", dashboardRoute);
 app.use("/api/visitors", visitorRoutes);
 
-
 app.get("/", (req, res) => {
-    res.send("AI Server Running");
+    res.json({
+        success: true,
+        message: "Portfolio API is running"
+    });
 });
-
 
 const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
-
-console.log("Reached end of file");
