@@ -68,6 +68,37 @@ It includes a separate admin panel that allows managing portfolio content dynami
 ### Tools & Services
 - Git & GitHub
 - MongoDB Atlas
-- Cloudinary
 - Thunder Client
 - VS Code
+
+
+## Project Structure
+
+```text
+pranjal-mern-portfolio/
+│
+├── client/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── admin/
+│   │   ├── dashboard/
+│   │   ├── services/
+│   │   └── App.jsx
+│   │
+│   ├── .env
+│   ├── package.json
+│   └── vite.config.js
+│
+├── server/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── .env
+│   ├── index.js
+│   └── package.json
+│
+└── README.md
