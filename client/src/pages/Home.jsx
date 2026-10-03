@@ -78,7 +78,13 @@ const Home = () => {
                 <div className="flex flex-wrap gap-6 mt-10">
 
                     <button className="text-white bg-orange-600 hover:bg-orange-700 p-2 rounded-lg"><Link to="/projects">View Projects</Link></button>
-                    <button className="border border-white hover:bg-orange-500 hover:text-white text-white p-2 rounded-lg">Download Resume</button>
+                    <a
+                        href="/Pranjal-Resume.pdf"
+                        download="Pranjal-Resume.pdf"
+                        className="inline-block px-6 py-3 rounded-lg bg-orange-500 text-white font-semibold hover:bg-orange-600 transition"
+                    >
+                        Download Resume
+                    </a>
                 </div>
 
                 <div className="hidden md:flex absolute right-6 lg:right-20 top-[52%] -translate-y-1/2">
