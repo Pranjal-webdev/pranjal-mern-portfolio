@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API="http://${import.meta.env.import.meta.env.VITE_API_URL}/api/admin";
+const API=`${import.meta.env.VITE_API_URL}/admin`;
 
 export const loginAdmin=async(formData)=>{
 
