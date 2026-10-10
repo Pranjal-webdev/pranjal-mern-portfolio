@@ -21,7 +21,7 @@ const About = () => {
 
                         <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-orange-500 shadow-[0_0_35px_rgba(249,115,22,0.5)]">
 
-                            <img src="/profile.jpeg" alt="Profile" className="w-40 h-40 rounded-full object-cover" />
+                            <img src="/profile.jpeg" alt="Profile" className="w-full h-full object-cover object-center" />
 
                         </div>
 
