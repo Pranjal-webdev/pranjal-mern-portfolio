@@ -80,7 +80,6 @@ const AIChatbot = () => {
 
             </button>
 
-            {/*for chat popup */}
 
             {open && (
 

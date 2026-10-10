@@ -102,9 +102,9 @@ const Home = () => {
                     <div className="w-72 h-72 rounded-full border-4 border-orange-500 overflow-hidden shadow-[0_0_50px_rgba(255,115,0,0.5)]">
 
                         <img
-                            src=""
+                            src="/profile.jpeg"
                             alt="Pranjal"
-                            className="w-full h-full object-cover"
+                            className="w-40 h-40 rounded-full object-cover"
                         />
 
                     </div>
