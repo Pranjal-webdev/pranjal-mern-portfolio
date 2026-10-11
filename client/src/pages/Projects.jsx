@@ -6,47 +6,47 @@ const Projects = () => {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
 
-useEffect(() => {
+    useEffect(() => {
 
-    const loadProjects = async () => {
+        const loadProjects = async () => {
 
-        try {
+            try {
 
-            const data = await getProjects();
+                const data = await getProjects();
 
-            setProjects(data);
+                setProjects(data);
 
-        }
+            }
 
-        catch (error) {
+            catch (error) {
 
-            console.log(error);
+                console.log(error);
 
-        }
+            }
 
-        setLoading(false);
+            setLoading(false);
 
-    };
+        };
 
-    loadProjects();
+        loadProjects();
 
-},[]);
+    }, []);
 
 
-if (loading) {
+    if (loading) {
 
-    return (
+        return (
 
-        <div className="bg-[#050505] min-h-screen flex justify-center items-center text-white text-2xl">
+            <div className="bg-[#050505] min-h-screen flex justify-center items-center text-white text-2xl">
 
-            Loading Projects...
+                Loading Projects...
 
-        </div>
+            </div>
 
-    );
+        );
 
-}
-    
+    }
+
     return (
 
         <section id="projects">
@@ -63,71 +63,80 @@ if (loading) {
 
                     <div className="w-28 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-16">
 
                         {
-                            projects.map((project) => (
+                            projects.map((project) => {
+                                const title = project.title?.toLowerCase() || "";
 
-                                <div
-                                    key={project.id}
-                                    className="bg-[#111] rounded-2xl overflow-hidden border border-gray-800 hover:border-orange-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] transition-all duration-300"
-                                >
+                                const image =
+                                    title.includes("car")
+                                        ? "/car.png"
+                                        : title.includes("chat")
+                                            ? "/chat.png"
+                                            : project.image;
+                                return (
+                                    <div
+                                        key={project._id || project.id || project.title}
+                                        className="bg-[#111] rounded-2xl overflow-hidden border border-gray-800 hover:border-orange-500 hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)] transition-all duration-300"
+                                    >
+                                        {image && (
+                                            <div className="w-full h-60 sm:h-80 md:h-96 lg:h-[420px] overflow-hidden bg-[#1a1a1a]">
+                                                <img
+                                                    src={image}
+                                                    alt={project.title}
+                                                    className="h-full w-full object-contain"
+                                                />
+                                            </div>
+                                        )}
 
-                                    <img src={project.image} alt={project.title} className="h-56 w-full object-cover" />
+                                        <div className="p-6">
+                                            <h2 className="text-2xl font-bold">
+                                                {project.title}
+                                            </h2>
 
-                                    <div className="p-6">
+                                            <p className="text-gray-400 mt-4 leading-7">
+                                                {project.description}
+                                            </p>
 
-                                        <h2 className="text-2xl font-bold">
+                                            <p className="text-orange-500 mt-5 font-semibold">
+                                                {project.technologies?.join(" • ")}
+                                            </p>
 
-                                            {project.title}
+                                            <div className="flex gap-3 mt-8">
+                                                {project.live && (
+                                                    <a
+                                                        href={project.live}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="flex-1 text-center bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition"
+                                                    >
+                                                        Live Demo ↗
+                                                    </a>
+                                                )}
 
-                                        </h2>
-
-                                        <p className="text-gray-400 mt-4 leading-7">
-
-                                            {project.description}
-
-                                        </p>
-
-                                        <p className="text-orange-500 mt-5 font-semibold">
-
-                                            {project.technologies?.join(" • ")}
-
-                                        </p>
-
-                                        <div className="flex gap-4 mt-8">
-
-                                            <a href={project.live} target="_blank" rel="noreferrer">
-
-                                                Live Demo
-
-                                            </a>
-
-                                            <a href={project.github} target="_blank" rel="noreferrer">
-
-                                                GitHub
-
-                                            </a>
-
+                                                {project.github && (
+                                                    <a
+                                                        href={project.github}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="flex-1 text-center border border-gray-600 hover:border-orange-500 hover:text-orange-500 py-3 rounded-lg font-semibold transition"
+                                                    >
+                                                        GitHub ↗
+                                                    </a>
+                                                )}
+                                            </div>
                                         </div>
-
                                     </div>
-
-                                </div>
-
-                            ))
+                                );
+                            })
                         }
 
                     </div>
-
                 </div>
-
             </div>
-
         </section>
-
-    );
-
-};
+    )
+}
 
 export default Projects;
