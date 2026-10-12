@@ -104,7 +104,7 @@ const Home = () => {
                         <img
                             src="/profile.jpeg"
                             alt="Pranjal"
-                            className="w-full h-full object-cover object-center"
+                            className="w-full h-full object-cover object-center "
                         />
 
                     </div>

@@ -82,11 +82,16 @@ const Projects = () => {
                                     >
                                         {image && (
                                             <div className="w-full h-60 sm:h-80 md:h-96 lg:h-[420px] overflow-hidden bg-[#1a1a1a]">
+
                                                 <img
                                                     src={image}
                                                     alt={project.title}
+                                                    loading="lazy"
+                                                    decoding="async"
+                                                    fetchPriority="low"
                                                     className="h-full w-full object-contain"
                                                 />
+
                                             </div>
                                         )}
 

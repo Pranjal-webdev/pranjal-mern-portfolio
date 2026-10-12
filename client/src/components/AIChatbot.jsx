@@ -83,8 +83,8 @@ const AIChatbot = () => {
 
             {open && (
 
-                <div className="fixed bottom-28 right-8 z-50 w-[380px] h-[550px] bg-[#111] border border-gray-800 rounded-2xl shadow-2xl overflow-hidden">
-
+                <div className="fixed bottom-20 right-3 left-3 sm:left-auto sm:right-6 z-50 w-auto sm:w-[380px] h-[min(500px,calc(100dvh-110px))] bg-[#111] border border-gray-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+                    
                     <div className="bg-orange-500 flex items-center justify-between px-5 py-4">
 
                         <div className="flex items-center gap-3">
